@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Grades>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-controller="Grades" asp-action="Create">Create New Grade</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                <a asp-controller="Grades"asp-action="Edit" asp-route-GradeId="@item.GradeId">Edit</a> 
+                <a asp-contRoller="Grades"asp-action="Details" asp-route-GradeId="@item.GradeId">Details</a> 
+                <a asp-controller="Grades"asp-action="Delete" asp-route-GradeId="@item.GradeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
